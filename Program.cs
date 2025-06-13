@@ -3,8 +3,10 @@
 namespace OldPhone
 {
     class Program
-    {
-        ///Entry point of the program. Reads user input and translates it using the old phone keypad logic.
+    {    
+        /// <summary>
+        ///The starting point of the program. It takes what the user types and changes it into letters using an old-style phone keypad.
+        /// </summary>
         static void Main(string[] args)
         {
             Console.Write("Enter String Inputs: ");
@@ -20,7 +22,9 @@ namespace OldPhone
 
     public static class PhonePad
     {    
-        /// Translates a sequence of key presses from an old phone keypad into text.
+        /// <summary>
+        /// Translates a sequence of key presses from an old phone keypad into readable text.
+        /// </summary>
         public static string TranslateInput(string input)
         {
             string output = "";
@@ -70,7 +74,9 @@ namespace OldPhone
             output += MapKeySequence(buffer);
             return output;
         }
-         /// Maps a sequence of numeric key presses to the corresponding letter based on old phone keypads.
+         /// <summary>
+         /// Matches a series of number key presses to the correct letters, like on old mobile phone keypads.
+         /// </summary>
         private static string MapKeySequence(string sequence)
         {
             if (string.IsNullOrEmpty(sequence))
@@ -92,7 +98,7 @@ namespace OldPhone
                 case '8': return "TUV"[Wrap(presses, 3)].ToString();
                 case '9': return "WXYZ"[Wrap(presses, 4)].ToString();
                 case '0': return " ";
-                default: return ""; //
+                default: return ""; //return expected output
             }
         }
     }
