@@ -1,4 +1,4 @@
-# Old Phone Solution
+# Old Mobile Phone Keys Solution
 Iron Software - Software Sales Engineer Application
 
 This C# console application simulates typing on an old mobile phone keypad, where each digit key maps to multiple letters (e.g., `2` maps to `A`, `B`, `C`).
