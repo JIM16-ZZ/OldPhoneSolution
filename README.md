@@ -41,10 +41,12 @@ This C# console application simulates typing on an old mobile phone keypad, wher
 | Inputs                     |     Outputs    |
 |----------------------------|----------------|
 | 222 2 22#                  |       CAB      |
+| 22*2#                      |        A       |
 | 33#                        |        E       | 
 | 227*#                      |        B       |
 | 4433555 555666#            |      HELLO     | 
 | 8 88777444666*664#         |      TURING    | 
+| 2 22 222 3 33 333#         |      ABCDEF    | 
 
 
 
