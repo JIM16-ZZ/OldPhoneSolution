@@ -46,8 +46,6 @@ This C# console application simulates typing on an old mobile phone keypad, wher
 | 227*#                      |        B       |
 | 4433555 555666#            |      HELLO     | 
 | 8 88777444666*664#         |      TURING    | 
-| 2 22 222 3 33 333#         |      ABCDEF    | 
-
 
 
 ## 🧑‍💻 Applicant
