@@ -78,26 +78,44 @@ namespace OldPhone
         /// </summary>
         private static string MapKeySequence(string sequence)
         {
-            if (string.IsNullOrEmpty(sequence))
+           if (string.IsNullOrEmpty(sequence))
                 return "";
 
             char key = sequence[0];
-            int presses = sequence.Length;
+            int count = sequence.Length;
 
-            int Wrap(int count, int max) => (count - 1) % max;
+            int position = 0;
 
             switch (key)
             {
-                case '2': return "ABC"[Wrap(presses, 3)].ToString();
-                case '3': return "DEF"[Wrap(presses, 3)].ToString();
-                case '4': return "GHI"[Wrap(presses, 3)].ToString();
-                case '5': return "JKL"[Wrap(presses, 3)].ToString();
-                case '6': return "MNO"[Wrap(presses, 3)].ToString();
-                case '7': return "PQRS"[Wrap(presses, 4)].ToString();
-                case '8': return "TUV"[Wrap(presses, 3)].ToString();
-                case '9': return "WXYZ"[Wrap(presses, 4)].ToString();
-                case '0': return " ";//spacing
-                default: return "";
+                case '2':
+                    position = (count - 1) % 3;
+                    return "ABC"[position].ToString();
+                case '3':
+                    position = (count - 1) % 3;
+                    return "DEF"[position].ToString();
+                case '4':
+                    position = (count - 1) % 3;
+                    return "GHI"[position].ToString();
+                case '5':
+                    position = (count - 1) % 3;
+                    return "JKL"[position].ToString();
+                case '6':
+                    position = (count - 1) % 3;
+                    return "MNO"[position].ToString();
+                case '7':
+                    position = (count - 1) % 4;
+                    return "PQRS"[position].ToString();
+                case '8':
+                    position = (count - 1) % 3;
+                    return "TUV"[position].ToString();
+                case '9':
+                    position = (count - 1) % 4;
+                    return "WXYZ"[position].ToString();
+                case '0':
+                    return " ";
+                default:
+                    return "";
             }
         }
     }
