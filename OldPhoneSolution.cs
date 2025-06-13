@@ -26,52 +26,48 @@ namespace OldPhone
         /// </summary>
         public static string TranslateInput(string input)
         {
-            string output = "";
-            string buffer = "";
-            char previousChar = '\0';
+            string result = "";
+            string currentSequence = "";
+            char previousKey = '\0';
 
-            foreach (char currentChar in input)
+            foreach (char ch in input)
             {
-                switch (currentChar)
+                if (ch == '#')
                 {
-                    case '#':
-                        output += MapKeySequence(buffer);
-                        return output;
-
-                    case '*':
-                        output += MapKeySequence(buffer);
-                        if (output.Length > 0)
-                            output = output.Substring(0, output.Length - 1);
-                        buffer = "";
-                        previousChar = '\0';
-                        break;
-
-                    case ' ':
-                        output += MapKeySequence(buffer);
-                        buffer = "";
-                        previousChar = '\0';
-                        break;
-
-                    default:
-                        if (char.IsDigit(currentChar))
-                        {
-                            if (currentChar == previousChar || buffer == "")
-                            {
-                                buffer += currentChar;
-                            }
-                            else
-                            {
-                                output += MapKeySequence(buffer);
-                                buffer = currentChar.ToString();
-                            }
-                            previousChar = currentChar;
-                        }
-                        break;
+                    result += ConvertKeySequence(currentSequence);
+                    break;
+                }
+                else if (ch == '*')
+                {
+                    result += ConvertKeySequence(currentSequence);
+                    if (result.Length > 0)
+                        result = result.Substring(0, result.Length - 1);
+                    currentSequence = "";
+                    previousKey = '\0';
+                }
+                else if (ch == ' ')
+                {
+                    result += ConvertKeySequence(currentSequence);
+                    currentSequence = "";
+                    previousKey = '\0';
+                }
+                else if (char.IsDigit(ch))
+                {
+                    if (ch == previousKey || previousKey == '\0')
+                    {
+                        currentSequence += ch;
+                    }
+                    else
+                    {
+                        result += ConvertKeySequence(currentSequence);
+                        currentSequence = ch.ToString();
+                    }
+                    previousKey = ch;
                 }
             }
-
-            output += MapKeySequence(buffer);
-            return output;
+            // Fallback in case input doesn't end with #
+            result += ConvertKeySequence(currentSequence);
+            return result;
         }
         /// <summary>
         /// Matches a series of number key presses to the correct letters, like on old mobile phone keypads.
