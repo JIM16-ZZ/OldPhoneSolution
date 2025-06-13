@@ -38,11 +38,13 @@ This C# console application simulates typing on an old mobile phone keypad, wher
 
 
 ## 🧪 Test Cases
-Inputs                     |        Outputs
-33#                        =>          E
-227*#                      =>          B
-4433555 555666#            =>        HELLO
-8 88777444666*664#         =>        TURING
+| Inputs                     |     Outputs    |
+|----------------------------|----------------|
+| 222 2 22#                  |       CAB      |
+| 33#                        |        E       | 
+| 227*#                      |        B       |
+| 4433555 555666#            |      HELLO     | 
+| 8 88777444666*664#         |      TURING    | 
 
 
 
