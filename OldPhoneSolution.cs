@@ -12,9 +12,8 @@ namespace OldPhone
             Console.Write("Enter String Inputs: ");
             string userInput = Console.ReadLine();
 
-            string translatedText = PhonePad.TranslateInput(userInput);
-            Console.WriteLine("Output: " + translatedText);
-
+            string result = PhonePad.TranslateInput(userInput);
+            Console.WriteLine("Output: " + result);
             Console.WriteLine("\nPress any keys to Exit!");
             Console.ReadKey();
         }
